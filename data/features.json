@@ -1,0 +1,441 @@
+{
+  "title": "Синтетический набор функций системы промышленной автоматизации",
+  "instance_version": "517-24-v1",
+  "construction": "Детерминированный учебный сценарий: названия, зависимости и альтернативы заданы явно; параметры ценности, времени и риска зафиксированы в таблице исходных данных.",
+  "budget_hours": 520.0,
+  "features": [
+    {
+      "id": "F01",
+      "name": "Базовая модель оборудования",
+      "value": 9,
+      "hours": 20,
+      "risk": 2,
+      "requires": [],
+      "conflicts": [],
+      "mandatory": true
+    },
+    {
+      "id": "F02",
+      "name": "Ролевой доступ операторов",
+      "value": 8,
+      "hours": 24,
+      "risk": 3,
+      "requires": [],
+      "conflicts": [],
+      "mandatory": true
+    },
+    {
+      "id": "F03",
+      "name": "Журнал действий и аудита",
+      "value": 8,
+      "hours": 28,
+      "risk": 3,
+      "requires": [
+        "F02"
+      ],
+      "conflicts": [],
+      "mandatory": true
+    },
+    {
+      "id": "F04",
+      "name": "Импорт конфигурации PLC",
+      "value": 10,
+      "hours": 40,
+      "risk": 6,
+      "requires": [
+        "F01"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F05",
+      "name": "Драйвер Modbus TCP",
+      "value": 9,
+      "hours": 32,
+      "risk": 4,
+      "requires": [
+        "F04"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F06",
+      "name": "Драйвер OPC UA",
+      "value": 10,
+      "hours": 48,
+      "risk": 7,
+      "requires": [
+        "F04"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F07",
+      "name": "Коннектор MQTT",
+      "value": 7,
+      "hours": 28,
+      "risk": 4,
+      "requires": [
+        "F01"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F08",
+      "name": "Потоковая телеметрия",
+      "value": 9,
+      "hours": 44,
+      "risk": 6,
+      "requires": [
+        "F07"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F09",
+      "name": "Буферизация при потере связи",
+      "value": 8,
+      "hours": 36,
+      "risk": 5,
+      "requires": [
+        "F08"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F10",
+      "name": "Дашборд состояния линии",
+      "value": 8,
+      "hours": 32,
+      "risk": 3,
+      "requires": [
+        "F01"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F11",
+      "name": "Настраиваемые пороговые тревоги",
+      "value": 9,
+      "hours": 28,
+      "risk": 3,
+      "requires": [
+        "F10"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F12",
+      "name": "Уведомления в Telegram",
+      "value": 6,
+      "hours": 20,
+      "risk": 4,
+      "requires": [
+        "F11"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F13",
+      "name": "Уведомления по электронной почте",
+      "value": 5,
+      "hours": 18,
+      "risk": 2,
+      "requires": [
+        "F11"
+      ],
+      "conflicts": [
+        "F12"
+      ],
+      "mandatory": false
+    },
+    {
+      "id": "F14",
+      "name": "Исторические тренды",
+      "value": 8,
+      "hours": 40,
+      "risk": 4,
+      "requires": [
+        "F08"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F15",
+      "name": "Экспорт отчёта CSV",
+      "value": 5,
+      "hours": 16,
+      "risk": 2,
+      "requires": [],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F16",
+      "name": "Экспорт отчёта PDF",
+      "value": 6,
+      "hours": 22,
+      "risk": 3,
+      "requires": [
+        "F15"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F17",
+      "name": "Плановое обслуживание",
+      "value": 8,
+      "hours": 36,
+      "risk": 5,
+      "requires": [
+        "F01"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F18",
+      "name": "Прогноз отказов по телеметрии",
+      "value": 10,
+      "hours": 64,
+      "risk": 9,
+      "requires": [
+        "F08",
+        "F14"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F19",
+      "name": "Ручное подтверждение команд",
+      "value": 8,
+      "hours": 30,
+      "risk": 4,
+      "requires": [
+        "F02"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F20",
+      "name": "Автоматическое исполнение команд",
+      "value": 10,
+      "hours": 58,
+      "risk": 9,
+      "requires": [
+        "F19"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F21",
+      "name": "Двухфакторная аутентификация",
+      "value": 7,
+      "hours": 30,
+      "risk": 4,
+      "requires": [
+        "F02"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F22",
+      "name": "Резервное копирование конфигурации",
+      "value": 7,
+      "hours": 26,
+      "risk": 3,
+      "requires": [
+        "F01"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F23",
+      "name": "Синхронизация с корпоративным каталогом",
+      "value": 7,
+      "hours": 38,
+      "risk": 6,
+      "requires": [
+        "F02"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F24",
+      "name": "Мобильная панель оператора",
+      "value": 7,
+      "hours": 42,
+      "risk": 5,
+      "requires": [
+        "F10"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F25",
+      "name": "Редактор мнемосхем",
+      "value": 9,
+      "hours": 56,
+      "risk": 7,
+      "requires": [
+        "F01"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F26",
+      "name": "Симулятор технологического процесса",
+      "value": 8,
+      "hours": 52,
+      "risk": 6,
+      "requires": [
+        "F01"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F27",
+      "name": "Песочница для проверки сценариев",
+      "value": 7,
+      "hours": 38,
+      "risk": 5,
+      "requires": [
+        "F26"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F28",
+      "name": "Версионирование сценариев",
+      "value": 6,
+      "hours": 28,
+      "risk": 3,
+      "requires": [
+        "F26"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F29",
+      "name": "Контроль качества входных данных",
+      "value": 8,
+      "hours": 34,
+      "risk": 4,
+      "requires": [
+        "F08"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F30",
+      "name": "Обнаружение аномалий",
+      "value": 9,
+      "hours": 54,
+      "risk": 8,
+      "requires": [
+        "F08",
+        "F29"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F31",
+      "name": "Локальный режим без облака",
+      "value": 7,
+      "hours": 36,
+      "risk": 4,
+      "requires": [
+        "F01"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F32",
+      "name": "Интеграция с облачной аналитикой",
+      "value": 8,
+      "hours": 46,
+      "risk": 7,
+      "requires": [
+        "F08"
+      ],
+      "conflicts": [
+        "F31"
+      ],
+      "mandatory": false
+    },
+    {
+      "id": "F33",
+      "name": "Мультитенантность",
+      "value": 6,
+      "hours": 44,
+      "risk": 7,
+      "requires": [
+        "F02"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F34",
+      "name": "Управление версиями ПО контроллеров",
+      "value": 8,
+      "hours": 48,
+      "risk": 6,
+      "requires": [
+        "F04"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F35",
+      "name": "Расписание регламентных работ",
+      "value": 7,
+      "hours": 34,
+      "risk": 4,
+      "requires": [
+        "F17"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    },
+    {
+      "id": "F36",
+      "name": "Панель KPI производства",
+      "value": 8,
+      "hours": 38,
+      "risk": 4,
+      "requires": [
+        "F10",
+        "F14"
+      ],
+      "conflicts": [],
+      "mandatory": false
+    }
+  ]
+}

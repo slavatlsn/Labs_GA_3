@@ -1,0 +1,141 @@
+{
+  "title": "Многокритериальный выбор функций продукта промышленной автоматизации",
+  "group": "517",
+  "student_number": 24,
+  "variant": 2,
+  "Q": 1,
+  "Y": 26,
+  "variant_formula": "1 + ((17*24 + 7*1 + 26) mod 20) = 2",
+  "problem": {
+    "feature_count": 36,
+    "mandatory_count": 3,
+    "time_budget_hours": 520.0,
+    "objectives": [
+      "максимизация ценности",
+      "минимизация времени",
+      "минимизация технического риска"
+    ],
+    "data": "synthetic, fixed in data/features.json",
+    "dataset_version": "517-24-v1",
+    "construction": "Детерминированный учебный сценарий с явно заданными параметрами; случайная генерация исходных оценок не применяется."
+  },
+  "experiment": {
+    "runs": 30,
+    "seeds": [
+      3000,
+      3029
+    ],
+    "population_nsga": 100,
+    "scalar_population_per_weight": 20,
+    "generations": 100,
+    "weights_count": 5,
+    "evaluations_per_run_each": 10100,
+    "weights": [
+      [
+        0.7,
+        0.15,
+        0.15
+      ],
+      [
+        0.15,
+        0.7,
+        0.15
+      ],
+      [
+        0.15,
+        0.15,
+        0.7
+      ],
+      [
+        0.45,
+        0.35,
+        0.2
+      ],
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    ],
+    "elapsed_seconds": 112.62529155100003
+  },
+  "metrics": {
+    "hypervolume_reference": [
+      1.05,
+      1.05,
+      1.05
+    ],
+    "nsga": {
+      "mean": 0.4187382343686264,
+      "median": 0.4192365765650109,
+      "std": 0.004799474960834761,
+      "min": 0.4057956547203892,
+      "max": 0.4232817198449744
+    },
+    "weighted_sum": {
+      "mean": 0.41436951412680545,
+      "median": 0.4144067748531626,
+      "std": 0.0014076821167221425,
+      "min": 0.4113738219146235,
+      "max": 0.41680403544539246
+    },
+    "paired_delta_nsga_minus_weighted": {
+      "mean": 0.0043687202418210055,
+      "median": 0.005079931927167575,
+      "std": 0.004732862441612233,
+      "min": -0.00621742780754142,
+      "max": 0.010151097193799918
+    },
+    "paired_delta_bootstrap_95ci": [
+      0.002661578779842271,
+      0.005998243378712038
+    ],
+    "nsga_wins": 25,
+    "ties": 0,
+    "weighted_wins": 5
+  },
+  "representative_solutions": [
+    {
+      "label": "Максимальная ценность",
+      "method": "NSGA-II",
+      "seed": 3000,
+      "value": 136.0,
+      "hours": 518.0,
+      "risk": 66.0,
+      "selected": 17,
+      "value_share": 0.4857142857142857,
+      "objective_value_min": 0.5142857142857142,
+      "objective_hours": 0.39602446483180426,
+      "objective_risk": 0.38596491228070173,
+      "features": "F01;F02;F03;F04;F05;F06;F07;F08;F09;F10;F11;F15;F16;F19;F21;F22;F29"
+    },
+    {
+      "label": "Минимальный срок",
+      "method": "NSGA-II",
+      "seed": 3000,
+      "value": 25.0,
+      "hours": 72.0,
+      "risk": 8.0,
+      "selected": 3,
+      "value_share": 0.08928571428571429,
+      "objective_value_min": 0.9107142857142857,
+      "objective_hours": 0.05504587155963303,
+      "objective_risk": 0.04678362573099415,
+      "features": "F01;F02;F03"
+    },
+    {
+      "label": "Сбалансированное",
+      "method": "NSGA-II",
+      "seed": 3000,
+      "value": 114.0,
+      "hours": 410.0,
+      "risk": 51.0,
+      "selected": 15,
+      "value_share": 0.40714285714285714,
+      "objective_value_min": 0.5928571428571429,
+      "objective_hours": 0.31345565749235477,
+      "objective_risk": 0.2982456140350877,
+      "features": "F01;F02;F03;F04;F05;F07;F10;F11;F13;F15;F16;F17;F19;F21;F22"
+    }
+  ]
+}
